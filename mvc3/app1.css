@@ -1,0 +1,16 @@
+app1{
+    width: 50vw;
+    height: 50vh;
+    border: 1px solid black;
+    margin-right: 8px;
+}
+#app1{
+    margin-top: 10vw;
+    margin-bottom: 27.9vw;
+}
+#app1>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

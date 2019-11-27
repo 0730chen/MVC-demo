@@ -11010,28 +11010,43 @@ require("./app1.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//��ȡ�ĸ���ť
+//��ȡ�ĸ���
 var n = localStorage.getItem('n');
+var eventBus = (0, _jquery.default)(window);
+console.dir(eventBus);
 var $output = (0, _jquery.default)('.output');
 var $add1 = (0, _jquery.default)('.add1');
 var $minus1 = (0, _jquery.default)('.minus1');
 var $mul2 = (0, _jquery.default)('.mul2');
 var $divide2 = (0, _jquery.default)('.divide2');
 $output.text(n || 100); // console.log($output,$add1,$minus1,$mul2,$divide2)
+// $output.on('ccc', e => {
+//     console.log(eventBus)
+//     eventBus.on('ccc', () => {
+//         console.log('haha')
+//     })
+// })
 
 $add1.on('click', function (e) {
+  //加
+  eventBus.trigger('ccc');
   e.preventDefault();
   var n = parseInt($output.text());
   n += 1;
   localStorage.setItem('n', n);
   $output.text(n); // $output.text(n)
 });
+eventBus.on('ccc', function () {// console.log('抓到了ccc')
+});
 $minus1.on('click', function (e) {
+  // eventBus.trigger('xxx')
   e.preventDefault();
   var n = parseInt($output.text());
   n -= 1;
   localStorage.setItem("n", n);
   $output.text(n);
+});
+eventBus.on('xxx', function () {// console.log('抓到了xxx')
 });
 $mul2.on('click', function (e) {
   e.preventDefault();
@@ -11151,7 +11166,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53529" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56342" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
